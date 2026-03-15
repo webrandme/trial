@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>We Brand Me — Blog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="shared.css" />
+<style>
+  /* Blog article overlay */
+  .article-overlay {
+    display: none; position: fixed; inset: 0; z-index: 2000;
+    background: var(--black); overflow-y: auto;
+  }
+  .article-overlay.open { display: block; }
+  .article-header {
+    padding: 9rem 5vw 4rem;
+    background: linear-gradient(135deg, var(--dark) 0%, var(--black) 100%);
+    border-bottom: 1px solid rgba(201,168,76,0.1);
+  }
+  .article-header .blog-cat { font-size: .65rem; letter-spacing: .25em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; display: block; }
+  .article-header h1 { font-family: var(--serif); font-size: clamp(2rem,5vw,3.5rem); font-weight: 700; line-height: 1.1; max-width: 700px; }
+  .article-header .meta { margin-top: 1.5rem; font-size: .72rem; color: var(--gray); letter-spacing: .08em; }
+  .article-body { padding: 4rem 5vw; max-width: 750px; }
+  .article-body p { font-size: .88rem; color: #ccc; line-height: 2; margin-bottom: 1.5rem; font-weight: 300; }
+  .article-body h2 { font-family: var(--serif); font-size: 1.8rem; color: var(--white); margin: 2.5rem 0 1rem; }
+  .article-body ul { padding-left: 1.5rem; margin-bottom: 1.5rem; }
+  .article-body ul li { font-size: .85rem; color: #ccc; line-height: 2; font-weight: 300; }
+  .article-close {
+    position: fixed; top: 1.5rem; right: 2rem; z-index: 2001;
+    width: 44px; height: 44px; border: 1px solid rgba(201,168,76,0.4);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold); font-size: 1.4rem; cursor: pointer;
+    background: var(--black); transition: all .3s;
+  }
+  .article-close:hover { background: var(--gold); color: var(--black); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a class="logo" href="index.html">We<span> Brand</span> Me</a>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="about.html">About Us</a>
+    <a href="blog.html" class="active">Blog</a>
+    <a href="contact.html" class="nav-cta">Contact us</a>
+  </div>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- BLOG PAGE -->
+<section style="padding-top:9rem">
+  <span class="section-tag reveal">Insights</span>
+  <h1 class="section-title reveal" style="font-size:clamp(2.5rem,5vw,4rem)">The <em>Blog</em></h1>
+  <div class="divider reveal"></div>
+  <p class="section-sub reveal">Tips, guides and insights on web design, branding, social media and digital marketing.</p>
+
+  <div class="blog-grid" style="margin-top:3rem">
+    <div class="blog-card reveal" onclick="openArticle('article1')">
+      <div class="blog-thumb"><img src="b1.jpg" alt=""></div>
+      <div class="blog-body">
+        <div class="blog-cat">Web Development</div>
+        <h3 class="blog-title">Why Every Business Needs a Website in 2026</h3>
+        <p class="blog-excerpt">In a world where customers Google before they buy, your website is your most important salesperson. Here's why a professional site is non-negotiable.</p>
+        <div class="blog-meta"><span class="blog-date">Dec 10, 2025</span><span class="blog-read">Read →</span></div>
+      </div>
+    </div>
+    <div class="blog-card reveal" onclick="openArticle('article2')">
+      <div class="blog-thumb"><img src="b2.jpg" alt=""></div>
+      <div class="blog-body">
+        <div class="blog-cat">Social Media</div>
+        <h3 class="blog-title">Best Social Media Marketing Tips for Small Businesses</h3>
+        <p class="blog-excerpt">You don't need a massive budget to win on social media. These proven strategies will help any small business build a genuine, engaged following.</p>
+        <div class="blog-meta"><span class="blog-date">Dec 5, 2025</span><span class="blog-read">Read →</span></div>
+      </div>
+    </div>
+    <div class="blog-card reveal" onclick="openArticle('article3')">
+      <div class="blog-thumb"><img src="b3.jpg" alt=""></div>
+      <div class="blog-body">
+        <div class="blog-cat">Branding</div>
+        <h3 class="blog-title">How Great Design Builds Unshakeable Brand Trust</h3>
+        <p class="blog-excerpt">Design is not decoration — it's communication. Discover how investing in visual identity directly impacts customer perception and sales.</p>
+        <div class="blog-meta"><span class="blog-date">Nov 28, 2025</span><span class="blog-read">Read →</span></div>
+      </div>
+    </div>
+    <div class="blog-card reveal" onclick="openArticle('article4')">
+      <div class="blog-thumb"><img src="b4.jpg" alt=""></div>
+      <div class="blog-body">
+        <div class="blog-cat">Advertisement</div>
+        <h3 class="blog-title">Meta vs Google Ads: Which is Right for Your Business?</h3>
+        <p class="blog-excerpt">Both platforms are powerful, but they work differently. We break down when to use each — and how to get maximum ROI from your ad spend.</p>
+        <div class="blog-meta"><span class="blog-date">Nov 20, 2025</span><span class="blog-read">Read →</span></div>
+      </div>
+    </div>
+    <div class="blog-card reveal" onclick="openArticle('article5')">
+      <div class="blog-thumb"><img src="b5.jpg" alt=""></div>
+      <div class="blog-body">
+        <div class="blog-cat">Growth</div>
+        <h3 class="blog-title">5 Signs Your Business Is Ready to Invest in Digital Marketing</h3>
+        <p class="blog-excerpt">Not sure if you're ready? These five signals indicate it's time to invest in a professional digital presence and stop leaving money on the table.</p>
+        <div class="blog-meta"><span class="blog-date">Nov 14, 2025</span><span class="blog-read">Read →</span></div>
+      </div>
+    </div>
+    <div class="blog-card reveal" onclick="openArticle('article6')">
+      <div class="blog-thumb"><img src="b6.jpg" alt=""></div>
+      <div class="blog-body">
+        <div class="blog-cat">Strategy</div>
+        <h3 class="blog-title">The 2026 Digital Agency Guide: What to Expect &amp; Ask</h3>
+        <p class="blog-excerpt">Choosing a digital agency is a big decision. Here's exactly what to look for, what questions to ask, and what red flags to avoid.</p>
+        <div class="blog-meta"><span class="blog-date">Jan 8, 2026</span><span class="blog-read">Read →</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-bottom" style="border:none">
+    <span>© 2026 We Brand Me.</span>
+    <a href="index.html" style="color:var(--gold);text-decoration:none">← Home</a>
+  </div>
+</footer>
+
+<!-- ARTICLE OVERLAYS -->
+<div class="article-overlay" id="articleOverlay">
+  <div class="article-close" onclick="closeArticle()">✕</div>
+  <div class="article-header">
+    <span class="blog-cat" id="art-cat"></span>
+    <h1 id="art-title"></h1>
+    <div class="meta" id="art-meta"></div>
+  </div>
+  <div class="article-body" id="art-body"></div>
+</div>
+
+<script>
+const articles = {
+  article1: {
+    cat: 'Web Development', title: 'Why Every Business Needs a Website in 2026', date: 'Dec 10, 2025',
+    body: `<p>In today's digital-first world, your website is your most powerful business asset. Before a customer walks through your door, calls your number, or places an order, they Google you. If you don't have a professional online presence, you're invisible to a huge portion of your potential market.</p>
+    <h2>Your Website Works 24/7</h2>
+    <p>Unlike your staff, your website never sleeps. It answers questions, showcases your services, and generates leads around the clock — even on weekends and holidays. A well-optimised website is the hardest-working member of your team.</p>
+    <h2>Credibility & Trust</h2>
+    <p>Studies show that 75% of consumers judge a company's credibility based on its website design. A dated or absent website immediately signals to potential customers that you're behind the times — or worse, not serious about your business.</p>
+    <h2>Compete with Bigger Brands</h2>
+    <p>A professionally designed website levels the playing field. With great design and strong SEO, a small business can rank alongside — or above — much larger competitors on Google search results.</p>
+    <ul><li>Higher organic search visibility</li><li>Better lead conversion rates</li><li>Improved customer trust and perception</li><li>Full control over your brand narrative</li></ul>
+    <p>If you're still operating without a professional website in 2024, now is the time to change that. We'd love to help you build something extraordinary.</p>`
+  },
+  article2: {
+    cat: 'Social Media', title: 'Best Social Media Marketing Tips for Small Businesses', date: 'Dec 5, 2025',
+    body: `<p>Social media is one of the most powerful — and most misunderstood — tools available to small businesses today. When used strategically, it can build brand awareness, generate leads, and create loyal communities at a fraction of the cost of traditional advertising.</p>
+    <h2>Consistency is King</h2>
+    <p>Posting sporadically kills momentum. The algorithm rewards accounts that post consistently. Aim for a realistic schedule — 3x per week is far better than 10 posts in one week followed by radio silence.</p>
+    <h2>Focus on Value, Not Sales</h2>
+    <p>The 80/20 rule applies here: 80% of your content should educate, entertain, or inspire. Only 20% should be promotional. When you lead with value, your audience trusts you — and buying from you becomes natural.</p>
+    <h2>Use Reels and Short Video</h2>
+    <p>Short-form video is the highest-reach content format on every major platform right now. Even a simple 30-second tip filmed on your phone can outperform highly polished static posts.</p>
+    <ul><li>Plan content in batches (monthly calendar)</li><li>Engage with your audience — reply to every comment</li><li>Use hashtags strategically, not in bulk</li><li>Track your analytics and double down on what works</li></ul>`
+  },
+  article3: {
+    cat: 'Branding', title: 'How Great Design Builds Unshakeable Brand Trust', date: 'Nov 28, 2025',
+    body: `<p>Design is not decoration. It's communication. Every colour, typeface, spacing choice, and visual element in your brand sends a message to your audience — whether you intend it to or not. Great design makes that message intentional, consistent, and powerful.</p>
+    <h2>First Impressions Are Visual</h2>
+    <p>Research shows that people form an opinion about a brand within 50 milliseconds of seeing it. That's before they've read a single word. Your visual identity — logo, colours, typography — is doing the heavy lifting before your copy even gets a chance.</p>
+    <h2>Consistency Builds Recognition</h2>
+    <p>Brands that maintain visual consistency across all touchpoints are 3.5x more likely to enjoy excellent brand visibility. Every time a customer sees your brand, it should feel familiar — building recognition and, ultimately, trust.</p>
+    <h2>Design Signals Quality</h2>
+    <p>People unconsciously equate design quality with product/service quality. A polished, professional brand communicates that you care about the details — which means customers believe you'll care about their experience too.</p>
+    <ul><li>Invest in a professional logo and brand identity</li><li>Define your brand colour palette and stick to it</li><li>Use consistent typography across all materials</li><li>Apply your brand guidelines to every touchpoint</li></ul>`
+  },
+  article4: {
+    cat: 'Advertisement', title: 'Meta vs Google Ads: Which is Right for Your Business?', date: 'Nov 20, 2025',
+    body: `<p>Two of the most powerful advertising platforms in the world — Meta (Facebook & Instagram) and Google — work in fundamentally different ways. Choosing the right one (or the right mix) depends entirely on your business type, goals, and audience.</p>
+    <h2>Google Ads: Capture Demand</h2>
+    <p>Google Ads are search-intent driven. Users are actively searching for something — and your ad appears in front of them at the exact moment of intent. This makes Google ideal for service businesses, local businesses, and any product with clear search demand.</p>
+    <h2>Meta Ads: Create Demand</h2>
+    <p>Meta Ads interrupt users as they scroll. They're not searching — you're introducing them to something they didn't know they wanted. This makes Meta perfect for e-commerce, visually-driven products, and building brand awareness.</p>
+    <h2>When to Use Both</h2>
+    <p>The most powerful ad strategies often use both platforms together: Meta to build awareness and create demand at the top of the funnel, Google to capture that demand at the bottom when users search with intent.</p>
+    <ul><li>High search volume product/service → Start with Google</li><li>Visual or lifestyle product → Start with Meta</li><li>B2B services → Consider LinkedIn alongside Google</li><li>Retargeting → Meta is typically superior</li></ul>`
+  },
+  article5: {
+    cat: 'Growth', title: '5 Signs Your Business Is Ready to Invest in Digital Marketing', date: 'Nov 14, 2025',
+    body: `<p>Many business owners know they "should" invest in digital marketing — but they're not sure if the timing is right. The truth is, there are clear signals that indicate when a business is primed to see real returns from a professional digital marketing investment.</p>
+    <h2>1. You Have a Proven Product or Service</h2>
+    <p>Digital marketing amplifies what's already working. If you have satisfied customers and a product that genuinely solves a problem, marketing will accelerate your growth. If the product isn't right yet, no amount of ads will save it.</p>
+    <h2>2. You Have a Marketing Budget</h2>
+    <p>Effective digital marketing requires consistent investment. If you can commit a monthly budget — however modest — you're in a position to see compounding results over time.</p>
+    <h2>3. Your Competitors Are Online</h2>
+    <p>If your competitors are running ads, ranking on Google, and growing their social media following while you're not — you're losing market share every day. That's the clearest sign it's time to act.</p>
+    <h2>4. You Want Predictable Lead Flow</h2>
+    <p>If your business runs on referrals alone, you're at the mercy of chance. Digital marketing creates predictable, scalable lead generation — the foundation of sustainable business growth.</p>
+    <h2>5. You're Ready to Grow</h2>
+    <p>If you have capacity to serve more clients and the ambition to grow, digital marketing is the most efficient lever you can pull.</p>`
+  },
+  article6: {
+    cat: 'Strategy', title: 'The 2026 Digital Agency Guide: What to Expect & Ask', date: 'Jan 8, 2026',
+    body: `<p>Choosing the right digital agency is one of the most important business decisions you'll make. A great agency becomes a true partner in your growth. A poor one wastes your budget and time. Here's exactly what to look for — and what to ask.</p>
+    <h2>What to Look For</h2>
+    <p>Look for an agency that specialises in your industry or your specific need, shows real case studies with measurable results, communicates clearly and proactively, and is transparent about pricing and process.</p>
+    <h2>Questions to Ask Before You Sign</h2>
+    <ul><li>Can I see case studies from businesses similar to mine?</li><li>Who will actually be working on my account?</li><li>How do you measure success, and how will you report it?</li><li>What does your onboarding process look like?</li><li>What happens if I'm not happy with the results?</li></ul>
+    <h2>Red Flags to Avoid</h2>
+    <p>Be cautious of agencies that guarantee specific rankings or results (nobody can guarantee Google rankings), require long lock-in contracts with no exit clauses, are vague about what they actually do, or can't show you real client results.</p>
+    <h2>The Right Partnership</h2>
+    <p>The best agency relationships are collaborative. You know your business and customers; they know digital strategy and execution. When both sides bring their best, the results speak for themselves.</p>`
+  }
+};
+
+function openArticle(id) {
+  const a = articles[id];
+  document.getElementById('art-cat').textContent = a.cat;
+  document.getElementById('art-title').textContent = a.title;
+  document.getElementById('art-meta').textContent = a.date + ' · We Brand Me';
+  document.getElementById('art-body').innerHTML = a.body;
+  document.getElementById('articleOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  window.scrollTo(0,0);
+}
+function closeArticle() {
+  document.getElementById('articleOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('open');
+  document.getElementById('hamburger').classList.toggle('open');
+}
+document.addEventListener('click', function(e) {
+  const nav = document.getElementById('navLinks');
+  const ham = document.getElementById('hamburger');
+  if (nav.classList.contains('open') && !nav.contains(e.target) && !ham.contains(e.target)) {
+    nav.classList.remove('open'); ham.classList.remove('open');
+  }
+});
+function initReveal() {
+  const els = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 100); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  els.forEach(el => obs.observe(el));
+}
+window.addEventListener('DOMContentLoaded', initReveal);
+</script>
+</body>
+</html>

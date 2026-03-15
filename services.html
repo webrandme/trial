@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>We Brand Me — Services</title>
+<script src="https://kit.fontawesome.com/a15c9eb90b.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="shared.css" />
+<style>
+  /* Service Detail Overlay */
+  .service-detail-overlay {
+    display: none; position: fixed; inset: 0; z-index: 2000;
+    background: rgba(8,8,8,0.97); overflow-y: auto;
+  }
+  .service-detail-overlay.open { display: block; }
+  .overlay-close {
+    position: fixed; top: 2rem; right: 2rem; z-index: 2001;
+    width: 44px; height: 44px; border: 1px solid rgba(201,168,76,0.4);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold); font-size: 1.4rem; cursor: pointer;
+    background: var(--black); transition: all .3s;
+  }
+  .overlay-close:hover { background: var(--gold); color: var(--black); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a class="logo" href="index.html">We<span> Brand</span> Me</a>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="services.html" class="active">Services</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="about.html">About Us</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html" class="nav-cta">Contact Us</a>
+  </div>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- SERVICES PAGE -->
+<section style="padding-top:9rem">
+  <span class="section-tag reveal">What We Offer</span>
+  <h1 class="section-title reveal" style="font-size:clamp(2.5rem,5vw,4rem)">Our <em>Services</em></h1>
+  <div class="divider reveal"></div>
+  <p class="section-sub reveal">Comprehensive digital solutions tailored to grow your brand. Click any service to learn more.</p>
+
+  <div class="services-grid" style="margin-top:4rem">
+    <div class="service-card reveal" id="webdev" onclick="openDetail('webdev')">
+      <div class="service-icon"><i class="fa-brands fa-html5"></i></div>
+      <h3>Web Development</h3>
+      <p>Custom websites and web applications designed for performance, beauty, and conversion.</p>
+      <div class="service-arrow">→</div>
+    </div>
+    <div class="service-card reveal" id="design" onclick="openDetail('design')">
+      <div class="service-icon">✦</div>
+      <h3>Graphic Design</h3>
+      <p>Brand identities, logos, print materials, and social creatives that make you memorable.</p>
+      <div class="service-arrow">→</div>
+    </div>
+    <div class="service-card reveal" id="smma" onclick="openDetail('smma')">
+      <div class="service-icon"><i class="fa-solid fa-hashtag"></i></div>
+      <h3>SMMA</h3>
+      <p>Full-service social media management — strategy, content, community &amp; growth.</p>
+      <div class="service-arrow">→</div>
+    </div>
+    <div class="service-card reveal" id="ads" onclick="openDetail('ads')">
+      <div class="service-icon"><i class="fa-solid fa-chart-line"></i></div>
+      <h3>Advertisement</h3>
+      <p>Paid ads on Meta, Google, and beyond — built to scale revenue with precision targeting.</p>
+      <div class="service-arrow">→</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-band reveal">
+  <h2>Not Sure Where to <em style="color:var(--gold);font-style:italic">Start?</em></h2>
+  <p>Book a free strategy call and we'll recommend the best service for your goals.</p>
+  <a href="contact.html" class="btn-primary">Get a Free Consultation</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-bottom" style="border:none">
+    <span>© 2026 We Brand Me.</span>
+    <a href="index.html" style="color:var(--gold);text-decoration:none">← Back to Home</a>
+  </div>
+</footer>
+
+<!-- SERVICE DETAIL OVERLAY -->
+<div class="service-detail-overlay" id="serviceOverlay">
+  <div class="overlay-close" onclick="closeDetail()">✕</div>
+  <div class="service-hero">
+    <div class="service-icon-big" id="detail-icon"><i class="fa-brands fa-html5"></i></div>
+    <h1 id="detail-title">Web Development</h1>
+    <p id="detail-subtitle">Loading...</p>
+  </div>
+  <section>
+    <div class="service-detail-grid">
+      <div>
+        <span class="section-tag">What's Included</span>
+        <h2 class="section-title" style="font-size:2rem;margin-bottom:1.5rem">What You <em>Get</em></h2>
+        <ul class="benefit-list" id="detail-benefits"></ul>
+      </div>
+      <div>
+        <span class="section-tag">Our Process</span>
+        <h2 class="section-title" style="font-size:2rem;margin-bottom:1.5rem">How It <em>Works</em></h2>
+        <div class="process-steps" id="detail-process"></div>
+        <a href="contact.html" class="btn-primary" style="margin-top:2rem;display:inline-block">Start This Service →</a>
+      </div>
+    </div>
+  </section>
+  <div class="cta-band">
+    <h2>Ready to Get <em style="color:var(--gold);font-style:italic">Started?</em></h2>
+    <p>Let's discuss your project and build something great.</p>
+    <a href="contact.html" class="btn-primary">Get a Quote</a>
+  </div>
+</div>
+
+<script>
+const serviceData = {
+  webdev: {
+    icon: '<i class="fa-brands fa-html5"></i>', title: 'Web Development',
+    subtitle: 'Custom, high-performance websites and web applications built to convert visitors into loyal customers. From landing pages to full e-commerce platforms.',
+    benefits: ['Custom website design & development','E-commerce / online store setup','Mobile-responsive on all devices','SEO-optimized code structure','Fast loading speed (Core Web Vitals)','Content management system (CMS)','Ongoing maintenance & support','Domain & hosting setup assistance'],
+    process: [{n:'1',t:'Discovery Call',d:'We understand your business, goals, and target audience.'},{n:'2',t:'Wireframing',d:'We map out the structure and user journey of your site.'},{n:'3',t:'Design Mockup',d:'High-fidelity visual design presented for your approval.'},{n:'4',t:'Development',d:'Clean, fast, tested code across all devices and browsers.'},{n:'5',t:'Review & Launch',d:'Final review, revisions, then a smooth go-live.'}]
+  },
+  design: {
+    icon: '✦', title: 'Graphic Design',
+    subtitle: 'Brand identities, logos, print materials, and social creatives that make your business visually unforgettable. Design that works as hard as you do.',
+    benefits: ['Logo design (3 concepts)','Brand identity guidelines','Business card & stationery design','Social media creative templates','Poster & banner design','Packaging design','Pitch deck / presentation design','Icon & illustration sets'],
+    process: [{n:'1',t:'Brand Brief',d:'We learn your values, audience, and visual direction.'},{n:'2',t:'Moodboard',d:'We share a curated moodboard for your approval.'},{n:'3',t:'Concept Design',d:'3 initial design concepts presented for feedback.'},{n:'4',t:'Refinement',d:'We refine the chosen direction with 2 rounds of revisions.'},{n:'5',t:'Final Delivery',d:'All files delivered in every format you need.'}]
+  },
+  smma: {
+    icon: '<i class="fa-solid fa-hashtag"></i>', title: 'Social Media Management',
+    subtitle: 'Full-service social media management — strategy, content creation, community management, and growth. Your brand, always active, always on-brand.',
+    benefits: ['Monthly content calendar','Custom graphics & reels','Caption writing & hashtag research','Story & highlight covers','Community management & replies','Monthly performance reports','Competitor analysis','Platform: Instagram, Facebook, LinkedIn'],
+    process: [{n:'1',t:'Audit',d:'We analyze your current social presence and competitors.'},{n:'2',t:'Strategy',d:'Content pillars, tone of voice, and posting schedule.'},{n:'3',t:'Content Creation',d:'Graphics, captions, and reels created for the month.'},{n:'4',t:'Scheduling',d:'Posts go live at optimal times for maximum reach.'},{n:'5',t:'Reporting',d:'Monthly analytics review and strategy refinement.'}]
+  },
+  ads: {
+    icon: '<i class="fa-solid fa-chart-line"></i>', title: 'Advertisement',
+    subtitle: 'Data-driven paid advertising campaigns on Meta, Google, and beyond — built to scale your revenue with precision targeting and creative that converts.',
+    benefits: ['Meta (Facebook & Instagram) Ads','Google Search & Display Ads','Campaign strategy & setup','Ad creative design','A/B testing','Pixel & conversion tracking setup','Weekly optimization','Detailed monthly ROI report'],
+    process: [{n:'1',t:'Goal Setting',d:'We define your KPIs, budget, and target audience.'},{n:'2',t:'Research',d:'Competitor analysis and audience research.'},{n:'3',t:'Creative & Copy',d:'Ad visuals and copy designed for your audience.'},{n:'4',t:'Launch & Test',d:'Campaigns go live with A/B testing from day one.'},{n:'5',t:'Optimize & Scale',d:'Weekly tweaks to maximize ROI and scale winners.'}]
+  }
+};
+
+function openDetail(key) {
+  const s = serviceData[key];
+ document.getElementById('detail-icon').innerHTML = s.icon;
+  document.getElementById('detail-title').textContent = s.title;
+  document.getElementById('detail-subtitle').textContent = s.subtitle;
+  document.getElementById('detail-benefits').innerHTML = s.benefits.map(b => `<li>${b}</li>`).join('');
+  document.getElementById('detail-process').innerHTML = s.process.map(p => `<div class="process-step"><span class="step-num">${p.n}</span><div><div class="step-title">${p.t}</div><div class="step-desc">${p.d}</div></div></div>`).join('');
+  document.getElementById('serviceOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeDetail() {
+  document.getElementById('serviceOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+// Open from URL hash on page load
+window.addEventListener('DOMContentLoaded', () => {
+  initReveal();
+  const hash = window.location.hash.replace('#','');
+  if (serviceData[hash]) openDetail(hash);
+});
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('open');
+  document.getElementById('hamburger').classList.toggle('open');
+}
+document.addEventListener('click', function(e) {
+  const nav = document.getElementById('navLinks');
+  const ham = document.getElementById('hamburger');
+  if (nav.classList.contains('open') && !nav.contains(e.target) && !ham.contains(e.target)) {
+    nav.classList.remove('open'); ham.classList.remove('open');
+  }
+});
+function initReveal() {
+  const els = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 100); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  els.forEach(el => obs.observe(el));
+}
+</script>
+</body>
+</html>

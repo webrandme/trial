@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>We Brand Me — Home</title>
+<script src="https://kit.fontawesome.com/a15c9eb90b.js" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="shared.css" />
+<style>
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh; display: flex; align-items: center;
+    position: relative; overflow: hidden;
+    background: radial-gradient(ellipse at 70% 50%, rgba(201,168,76,0.06) 0%, transparent 60%);
+  }
+  .hero-bg {
+    position: absolute; inset: 0; z-index: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9A84C' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-content { position: relative; z-index: 2; padding: 7rem 5vw 5rem; max-width: 900px; }
+  .hero-tag {
+    display: inline-block; font-size: .68rem; letter-spacing: .25em; text-transform: uppercase;
+    color: var(--gold); border: 1px solid rgba(201,168,76,0.4); padding: .4rem 1rem;
+    margin-bottom: 2rem; animation: fadeUp .8s .2s both;
+  }
+  .hero h1 { font-family: var(--serif); font-size: clamp(3rem, 7vw, 6.5rem); font-weight: 700; line-height: 1.05; letter-spacing: -.01em; animation: fadeUp .8s .4s both; }
+  .hero h1 em { color: var(--gold); font-style: italic; }
+  .hero-sub { font-size: .9rem; color: var(--gray); line-height: 1.9; max-width: 520px; margin: 1.8rem 0 2.8rem; font-weight: 300; animation: fadeUp .8s .6s both; }
+  .hero-btns { display: flex; gap: 1.2rem; flex-wrap: wrap; animation: fadeUp .8s .8s both; }
+  .hero-scroll { position: absolute; bottom: 2.5rem; left: 5vw; z-index: 2; font-size: .65rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gray); display: flex; align-items: center; gap: .8rem; animation: fadeUp .8s 1s both; }
+  .hero-scroll::before { content: ''; width: 40px; height: 1px; background: var(--gold); }
+  .hero-stat { display: flex; gap: 3rem; animation: fadeUp .8s 1s both; margin-top: 3rem; flex-wrap: wrap; padding-top: 2.5rem; border-top: 1px solid rgba(201,168,76,0.2); }
+  .stat { text-align: left; padding-right: 3rem; border-right: 1px solid rgba(201,168,76,0.15); }
+  .stat:last-child { border-right: none; padding-right: 0; }
+  .stat-num { font-family: var(--serif); font-size: 2.8rem; color: var(--gold); font-weight: 700; line-height: 1; }
+  .stat-label { font-size: .65rem; letter-spacing: .15em; text-transform: uppercase; color: var(--gray); margin-top: .4rem; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a class="logo" href="index.html">We<span> Brand</span> Me</a>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html" class="active">Home</a>
+    <a href="services.html">Services</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="about.html">About Us</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html" class="nav-cta">Contact Us</a>
+  </div>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <span class="hero-tag">Digital Agency · Est. 2026</span>
+    <h1>We Build Brands<br>That <em>Stand Out</em><br>Online</h1>
+    <p class="hero-sub">Web Development, Creative Design &amp; Digital Marketing Solutions for Modern Businesses. Your vision, our expertise — let's build something extraordinary.</p>
+    <div class="hero-btns">
+      <a href="contact.html" class="btn-primary">Start Your Project</a>
+      <a href="portfolio.html" class="btn-outline">View Our Work</a>
+    </div>
+    <div class="hero-stat">
+      <div class="stat"><div class="stat-num">50+</div><div class="stat-label">Projects Done</div></div>
+      <div class="stat"><div class="stat-num">30+</div><div class="stat-label">Happy Clients</div></div>
+      <div class="stat"><div class="stat-num">2</div><div class="stat-label">Founders</div></div>
+    </div>
+  </div>
+  <div class="hero-scroll">Scroll to explore</div>
+</section>
+
+<!-- BRANDS -->
+<div class="brands-section reveal">
+  <p class="brands-label">Brands We've Worked With</p>
+  <div class="brands-row">
+    <span class="brand-item">Sip & Joy</span>
+    <span class="brand-item">Paradigm Architects</span>
+    
+  </div>
+</div>
+
+<!-- SERVICES OVERVIEW -->
+<section>
+  <div class="reveal">
+    <span class="section-tag">What We Do</span>
+    <h2 class="section-title">Premium Services For <em>Modern</em> Brands</h2>
+    <div class="divider"></div>
+    <p class="section-sub">We offer a comprehensive suite of digital services to help your business dominate online.</p>
+  </div>
+  <div class="services-grid">
+    <a class="service-card reveal" href="services.html#webdev" style="text-decoration:none;color:inherit">
+      <div class="service-icon"><i class="fa-brands fa-html5"></i></div>
+      <h3>Web Development</h3>
+      <p>Custom, high-performance websites and web apps built to convert visitors into loyal customers.</p>
+      <div class="service-arrow">→</div>
+    </a>
+    <a class="service-card reveal" href="services.html#design" style="text-decoration:none;color:inherit">
+      <div class="service-icon">✦</div>
+      <h3>Graphic Design</h3>
+      <p>Brand identities, logos, and creative visuals that make your business unforgettable.</p>
+      <div class="service-arrow">→</div>
+    </a>
+    <a class="service-card reveal" href="services.html#smma" style="text-decoration:none;color:inherit">
+      <div class="service-icon"><i class="fa-solid fa-hashtag"></i></div>
+      <h3>SMMA</h3>
+      <p>Social media management and marketing to grow your audience and build lasting brand presence.</p>
+      <div class="service-arrow">→</div>
+    </a>
+    <a class="service-card reveal" href="services.html#ads" style="text-decoration:none;color:inherit">
+      <div class="service-icon"><i class="fa-solid fa-chart-line"></i></div>
+      <h3>Advertisement</h3>
+      <p>Data-driven paid advertising campaigns on Meta, Google &amp; more that deliver measurable ROI.</p>
+      <div class="service-arrow">→</div>
+    </a>
+  </div>
+</section>
+
+<!-- PORTFOLIO PREVIEW -->
+<section style="padding-top:0">
+  <div class="reveal">
+    <span class="section-tag">Our Work</span>
+    <h2 class="section-title">Selected <em>Projects</em></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="portfolio-grid">
+    <div class="portfolio-item reveal">
+      <div class="portfolio-thumb"> <video class="project-video" autoplay muted loop>
+    <source src="standard.mp4" type="video/mp4"></div>
+      <div class="portfolio-overlay">
+        <span class="portfolio-tag">Web Development</span>
+        <h3 class="portfolio-title">Standard</h3>
+        <p class="portfolio-desc">Basic Website with Single page.</p>
+      </div>
+    </div>
+    <div class="portfolio-item reveal">
+      <div class="portfolio-thumb"><video class="project-video" autoplay muted loop>
+    <source src="premium.mp4" type="video/mp4"></div>
+      <div class="portfolio-overlay">
+        <span class="portfolio-tag">Web Development</span>
+        <h3 class="portfolio-title">Premium</h3>
+        <p class="portfolio-desc">Single page Website with Luxury Animations.</p>
+      </div>
+    </div>
+    <div class="portfolio-item reveal">
+      <div class="portfolio-thumb"><video class="project-video" autoplay muted loop>
+    <source src="elite.mp4" type="video/mp4"></div>
+      <div class="portfolio-overlay">
+        <span class="portfolio-tag">Web Development</span>
+        <h3 class="portfolio-title">Elite</h3>
+        <p class="portfolio-desc">Luxury Multipage Website with High end Animations.</p>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center; margin-top:2.5rem">
+    <a href="portfolio.html" class="btn-outline">View All Projects →</a>
+  </div>
+</section>
+
+<!-- WHY US + PROCESS -->
+<section style="background:var(--dark)">
+  <div class="why-grid">
+    <div>
+      <span class="section-tag reveal">Why Choose Us</span>
+      <h2 class="section-title reveal">Built Different.<br>Built For <em>Results.</em></h2>
+      <div class="divider reveal"></div>
+      <div class="why-list">
+        <div class="why-item reveal">
+          <span class="why-num">01</span>
+          <div><h4>Premium Design Quality</h4><p>Every pixel is intentional. We craft experiences that are visually stunning and strategically effective.</p></div>
+        </div>
+        <div class="why-item reveal">
+          <span class="why-num">02</span>
+          <div><h4>Fast, On-Time Delivery</h4><p>We respect your deadlines. Our streamlined process ensures projects launch on time, every time.</p></div>
+        </div>
+        <div class="why-item reveal">
+          <span class="why-num">03</span>
+          <div><h4>Transparent &amp; Affordable</h4><p>No hidden fees. Clear pricing, clear communication, and real value for every rupee spent.</p></div>
+        </div>
+        <div class="why-item reveal">
+          <span class="why-num">04</span>
+          <div><h4>Dedicated Support</h4><p>We're not just a vendor — we're your long-term digital partner. Available when you need us.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="why-visual reveal">
+      <span class="section-tag">Our Process</span>
+      <h3 class="section-title" style="font-size:1.8rem;margin-bottom:2rem">How We <em>Work</em></h3>
+      <div class="process-steps">
+        <div class="process-step"><span class="step-num">1</span><div><div class="step-title">Discovery</div><div class="step-desc">We learn your business, goals &amp; audience.</div></div></div>
+        <div class="process-step"><span class="step-num">2</span><div><div class="step-title">Planning</div><div class="step-desc">Strategy, wireframes &amp; project roadmap.</div></div></div>
+        <div class="process-step"><span class="step-num">3</span><div><div class="step-title">Design</div><div class="step-desc">Visual concepts, UI mockups &amp; brand system.</div></div></div>
+        <div class="process-step"><span class="step-num">4</span><div><div class="step-title">Development</div><div class="step-desc">Clean code, tested across all devices.</div></div></div>
+        <div class="process-step"><span class="step-num">5</span><div><div class="step-title">Launch</div><div class="step-desc">Go live with full support &amp; handover.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-bg">
+  <div class="reveal">
+    <span class="section-tag">Client Love</span>
+    <h2 class="section-title">What Our <em>Clients</em> Say</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card reveal">
+      <div class="stars">★★★★★</div>
+      <div class="quote-icon">"</div>
+      <p class="testimonial-text">"We Brand Me completely transformed our online presence. Our new website brought in 3x more leads within the first month. Exceptional work from a talented team."</p>
+      <div class="testimonial-author"><div class="author-avatar">R</div><div><div class="author-name">Dinesh Sharma</div><div class="author-role">Founder, Sip & Joy</div></div></div>
+    </div>
+    <div class="testimonial-card reveal">
+      <div class="stars">★★★★★</div>
+      <div class="quote-icon">"</div>
+      <p class="testimonial-text">“Excellent service and outstanding support. The team delivered high-quality work on time and exceeded our expectations. Highly professional, reliable, and easy to work with. I would definitely recommend them.”</p>
+      <div class="testimonial-author"><div class="author-avatar">P</div><div><div class="author-name">Priya Mehra</div><div class="author-role"></div></div></div>
+    </div>
+    <div class="testimonial-card reveal">
+      <div class="stars">★★★★★</div>
+      <div class="quote-icon">"</div>
+      <p class="testimonial-text">“Working with this team was a great experience. They understood our needs perfectly, delivered a beautiful website, and provided excellent support throughout the process. Truly professional and highly recommended.”</p>
+      <div class="testimonial-author"><div class="author-avatar">A</div><div><div class="author-name">Ar. Anant Garg</div><div class="author-role">Paradigm Architects</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-band reveal">
+  <h2>Ready to <em style="color:var(--gold);font-style:italic">Brand</em> Your Business?</h2>
+  <p>Let's build something remarkable together. Book a free Quick Call with our team.</p>
+  <a href="contact.html" class="btn-primary">Book Your Slot Now</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a class="logo" href="index.html" style="margin-bottom:.5rem;display:inline-block">We<span> Brand</span> Me</a>
+      <p>A premium digital agency crafting brands, websites &amp; marketing strategies that drive real business growth.</p>
+      <div class="social-links" style="margin-top:1.5rem">
+        <a href="https://www.instagram.com/we.brand.me" class="social-link"><i class="fa-brands fa-square-instagram fa-xl"></i></a><a href="https://www.facebook.com/profile.php?id=61582056299704#" class="social-link"><i class="fa-brands fa-facebook fa-xl"></i></a><a href="https://www.youtube.com/@WeBrandMe" class="social-link"><i class="fa-brands fa-youtube fa-xl"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="services.html#webdev">Web Development</a>
+      <a href="services.html#design">Graphic Design</a>
+      <a href="services.html#smma">SMMA</a>
+      <a href="services.html#ads">Advertisement</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="about.html">About Us</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a>we.brand.mee@gmail.com</a>
+      <a></a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 We Brand Me. All rights reserved.</span>
+    <span>Crafted with passion ✦</span>
+  </div>
+</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('open');
+  document.getElementById('hamburger').classList.toggle('open');
+}
+document.addEventListener('click', function(e) {
+  const nav = document.getElementById('navLinks');
+  const ham = document.getElementById('hamburger');
+  if (nav.classList.contains('open') && !nav.contains(e.target) && !ham.contains(e.target)) {
+    nav.classList.remove('open'); ham.classList.remove('open');
+  }
+});
+function initReveal() {
+  const els = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 100); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  els.forEach(el => obs.observe(el));
+}
+window.addEventListener('DOMContentLoaded', initReveal);
+</script>
+</body>
+</html>

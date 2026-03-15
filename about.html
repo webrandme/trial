@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>We Brand Me — About Us</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="shared.css" />
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a class="logo">We<span> Brand</span> Me</a>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="about.html" class="active">About Us</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html" class="nav-cta">Contact Us</a>
+  </div>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ABOUT PAGE -->
+<section style="padding-top:9rem">
+  <span class="section-tag reveal">Our Story</span>
+  <h1 class="section-title reveal" style="font-size:clamp(2.5rem,5vw,4rem)">The Team Behind <em>We Brand Me</em></h1>
+  <div class="divider reveal"></div>
+  <p class="section-sub reveal">We're two friends who turned a shared passion for design and technology into a full-service digital agency — helping businesses build brands that actually stand out online.</p>
+
+  <div class="founders-grid">
+    <div class="founder-card reveal">
+      <div class="founder-photo"><img src="ayush.jpeg" alt=""></div>
+      <div class="founder-name">Ayush Arora</div>
+      <div class="founder-role">Co-Founder · Creative Director</div>
+      <p class="founder-bio">A passionate web developer with over two years of training in web development, specializing in frontend development and graphic design. Skilled in creating modern, responsive, and user-friendly websites. Focused on combining creativity with technical expertise to deliver high-quality digital experiences that help brands build a strong online presence.</p>
+    </div>
+    <div class="founder-card reveal">
+      <div class="founder-photo"><img src="anshul.jpg" alt=""></div>
+      <div class="founder-name">Anshul Sukhija </div>
+      <div class="founder-role">Co-Founder ·Web Developer</div>
+      <p class="founder-bio"> Passionate backend web developer focused on building efficient, scalable, and reliable web applications. Skilled in server-side development, database management, and modern web architecture. Also experienced in SMMA and digital advertising, managing and optimizing ad campaigns to drive business growth. Completed a two-year professional course in web development.</p>
+    </div>
+  </div>
+
+  <div class="about-values" style="margin-top:5rem">
+    <div class="value-item reveal">
+      <div class="value-icon">⚡</div>
+      <div class="value-title">Speed</div>
+      <p class="value-text">We move fast without sacrificing quality. Most projects launch within 2–4 weeks.</p>
+    </div>
+    <div class="value-item reveal">
+      <div class="value-icon">✦</div>
+      <div class="value-title">Quality</div>
+      <p class="value-text">Premium design and code is non-negotiable. We don't do average work.</p>
+    </div>
+    <div class="value-item reveal">
+      <div class="value-icon">🤝</div>
+      <div class="value-title">Trust</div>
+      <p class="value-text">Transparent pricing, clear communication, and zero surprises.</p>
+    </div>
+  </div>
+
+  <div style="margin-top:5rem" class="reveal">
+    <span class="section-tag">Get in Touch</span>
+    <h2 class="section-title" style="font-size:2rem;margin-bottom:2rem">Reach <em>Us Directly</em></h2>
+    <div style="display:flex;gap:2rem;flex-wrap:wrap">
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div><div class="contact-label">Phone</div><div class="contact-value">+91 76656 16780</div><div class="contact-value">+91 94612 58996</div></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">✉</div>
+        <div><div class="contact-label">Email</div><div class="contact-value">we.brand.mee@gmail.com</div></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">💬</div>
+        <div><div class="contact-label">WhatsApp</div><div class="contact-value">+91 76656 16780</div><div class="contact-value">+91 94612 58996</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band reveal">
+  <h2>Let's Build Something <em style="color:var(--gold);font-style:italic">Together</em></h2>
+  <p>We're selective about our clients — because we care about doing great work.</p>
+  <a href="contact.html" class="btn-primary">Work With Us</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-bottom" style="border:none">
+    <span>© 2026 We Brand Me.</span>
+    <a href="index.html" style="color:var(--gold);text-decoration:none">← Home</a>
+  </div>
+</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('open');
+  document.getElementById('hamburger').classList.toggle('open');
+}
+document.addEventListener('click', function(e) {
+  const nav = document.getElementById('navLinks');
+  const ham = document.getElementById('hamburger');
+  if (nav.classList.contains('open') && !nav.contains(e.target) && !ham.contains(e.target)) {
+    nav.classList.remove('open'); ham.classList.remove('open');
+  }
+});
+function initReveal() {
+  const els = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 100); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  els.forEach(el => obs.observe(el));
+}
+window.addEventListener('DOMContentLoaded', initReveal);
+</script>
+</body>
+</html>

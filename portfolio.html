@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>We Brand Me — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="shared.css" />
+<style>
+  /* Filter tabs */
+  .filter-tabs { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
+  .filter-btn {
+    font-size: .65rem; letter-spacing: .2em; text-transform: uppercase;
+    padding: .55rem 1.2rem; border: 1px solid rgba(255,255,255,0.15);
+    background: transparent; color: var(--gray); cursor: pointer;
+    transition: all .3s; font-family: var(--sans); font-weight: 500;
+  }
+  .filter-btn:hover, .filter-btn.active { border-color: var(--gold); color: var(--gold); }
+  .portfolio-item { transition: opacity .4s, transform .4s; }
+  .portfolio-item.hidden { opacity: 0; pointer-events: none; position: absolute; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a class="logo" href="index.html">We<span> Brand</span> Me</a>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="portfolio.html" class="active">Portfolio</a>
+    <a href="about.html">About Us</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html" class="nav-cta">Contact Us</a>
+  </div>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- PORTFOLIO PAGE -->
+<section style="padding-top:9rem">
+  <span class="section-tag reveal">Our Work</span>
+  <h1 class="section-title reveal" style="font-size:clamp(2.5rem,5vw,4rem)">Selected <em>Projects</em></h1>
+  <div class="divider reveal"></div>
+  <p class="section-sub reveal">Real projects, real results. Each project reflects our commitment to quality and impact.</p>
+
+  <!-- Filter Tabs -->
+  <div class="filter-tabs reveal">
+    <button class="filter-btn active" onclick="filterProjects('all', this)">All</button>
+    <button class="filter-btn" onclick="filterProjects('web', this)">Standard</button>
+    <button class="filter-btn" onclick="filterProjects('brand', this)">Premium</button>
+    <button class="filter-btn" onclick="filterProjects('smma', this)">Elite</button>
+    
+    
+  </div>
+
+  <div class="portfolio-grid" style="margin-top:3rem;position:relative">
+    <div class="portfolio-item reveal" data-cat="web">
+      <div class="portfolio-thumb"><img  src="st1.png" alt=""></div>
+      <div class="portfolio-overlay">
+        <span class="portfolio-tag">Web development</span>
+        <h3 class="portfolio-title">Standard</h3>
+        <p class="portfolio-desc">A Clean look website with Some Animations.</p>
+      </div>
+    </div>
+    <div class="portfolio-item reveal" data-cat="web">
+      <div class="portfolio-thumb"><img src="st2.png" alt=""></div>
+      <div class="portfolio-overlay">
+        <span class="portfolio-tag">Web development</span>
+        <h3 class="portfolio-title">Standard</h3>
+        <p class="portfolio-desc">A single page website with Minimal Design </p>
+      </div>
+    </div>
+    <div class="portfolio-item reveal" data-cat="brand">
+      <div class="portfolio-thumb"><img src="p1.png" alt=""></div>
+      <div class="portfolio-overlay">
+        <span class="portfolio-tag">Web development</span>
+        <h3 class="portfolio-title">Premium</h3>
+        <p class="portfolio-desc">A Moderate website with Many Animations </p>
+      </div>
+    </div>
+    <div class="portfolio-item reveal" data-cat="brand">
+      <div class="portfolio-thumb"><img src="p2.png" alt=""></div>
+      <div class="portfolio-overlay">
+        <span class="portfolio-tag">Web Development</span>
+        <h3 class="portfolio-title">Premium</h3>
+        <p class="portfolio-desc">Where innovation Meets Elegance</p>
+      </div>
+    </div>
+    <div class="portfolio-item reveal" data-cat="brand">
+      <div class="portfolio-thumb"><img src="p3.png" alt=""></div>
+      <div class="portfolio-overlay">
+        <span class="portfolio-tag">Web development</span>
+        <h3 class="portfolio-title">Premium</h3>
+        <p class="portfolio-desc">Luxury in every Details</p>
+      </div>
+    </div>
+    <div class="portfolio-item reveal" data-cat="smma">
+      <div class="portfolio-thumb"><img src="el1.png" alt=""></div>
+      <div class="portfolio-overlay">
+        <span class="portfolio-tag">Web development</span>
+        <h3 class="portfolio-title">Elite</h3>
+        <p class="portfolio-desc">Transforming Ideas into Elite Experiences</p>
+      </div>
+    </div>
+    <div class="portfolio-item reveal" data-cat="smma">
+      <div class="portfolio-thumb"><img src="el2.png" alt=""></div>
+      <div class="portfolio-overlay">
+        <span class="portfolio-tag">Web development</span>
+        <h3 class="portfolio-title">Elite</h3>
+        <p class="portfolio-desc">Beyond Ordinary Experiences </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-band reveal">
+  <h2>Your Project Could Be <em style="color:var(--gold);font-style:italic">Next</em></h2>
+  <p>Let's create something that gets results and makes an impression.</p>
+  <a href="contact.html" class="btn-primary">Start Your Project</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-bottom" style="border:none">
+    <span>© 2026 We Brand Me.</span>
+    <a href="index.html" style="color:var(--gold);text-decoration:none">← Home</a>
+  </div>
+</footer>
+
+<script>
+function filterProjects(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.portfolio-item').forEach(item => {
+    if (cat === 'all' || item.dataset.cat === cat) {
+      item.style.display = '';
+    } else {
+      item.style.display = 'none';
+    }
+  });
+}
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('open');
+  document.getElementById('hamburger').classList.toggle('open');
+}
+document.addEventListener('click', function(e) {
+  const nav = document.getElementById('navLinks');
+  const ham = document.getElementById('hamburger');
+  if (nav.classList.contains('open') && !nav.contains(e.target) && !ham.contains(e.target)) {
+    nav.classList.remove('open'); ham.classList.remove('open');
+  }
+});
+function initReveal() {
+  const els = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 100); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  els.forEach(el => obs.observe(el));
+}
+window.addEventListener('DOMContentLoaded', initReveal);
+</script>
+</body>
+</html>

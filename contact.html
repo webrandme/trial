@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>We Brand Me — Contact</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="shared.css">
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav id="navbar">
+
+<a class="logo" href="index.html">
+We<span> Brand</span> Me
+</a>
+
+<div class="nav-links" id="navLinks">
+<a href="index.html">Home</a>
+<a href="services.html">Services</a>
+<a href="portfolio.html">Portfolio</a>
+<a href="about.html">About Us</a>
+<a href="blog.html">Blog</a>
+<a href="contact.html" class="nav-cta active">Contact Us</a>
+</div>
+
+<div class="hamburger" onclick="toggleMenu()">
+<span></span>
+<span></span>
+<span></span>
+</div>
+
+</nav>
+
+
+<!-- CONTACT SECTION -->
+
+<section style="padding-top:9rem">
+
+<span class="section-tag">Let's Talk</span>
+
+<h1 class="section-title" style="font-size:clamp(2.5rem,5vw,4rem)">
+Start Your <em>Project</em>
+</h1>
+
+<div class="divider"></div>
+
+<div class="contact-grid">
+
+
+<!-- CONTACT INFO -->
+
+<div class="contact-info">
+
+<p class="section-sub" style="margin-bottom:3rem">
+Fill in the form and we'll get back to you within 24 hours.
+</p>
+
+<div class="contact-item">
+<div class="contact-icon">📞</div>
+<div>
+<div class="contact-label">Phone</div>
+<div class="contact-value">+91 76656 16780</div>
+<div class="contact-value">+91 94612 58996</div>
+</div>
+</div>
+
+<div class="contact-item">
+<div class="contact-icon">✉</div>
+<div>
+<div class="contact-label">Email</div>
+<div class="contact-value">we.brand.mee@gmail.com</div>
+</div>
+</div>
+
+<div class="contact-item">
+<div class="contact-icon">⏱</div>
+<div>
+<div class="contact-label">Response Time</div>
+<div class="contact-value">Within 24 hours</div>
+</div>
+</div>
+
+<a href="https://www.instagram.com/we.brand.me" class="whatsapp-btn" target="_blank">
+💬 DM on Instagram
+</a>
+
+</div>
+
+
+
+<!-- CONTACT FORM -->
+
+<form class="contact-form" id="contactForm">
+
+<div class="form-row">
+
+<div class="form-group">
+<label>First Name</label>
+<input type="text" name="fname" placeholder="Rahul" required>
+</div>
+
+<div class="form-group">
+<label>Last Name</label>
+<input type="text" name="lname" placeholder="Sharma">
+</div>
+
+</div>
+
+
+<div class="form-group">
+<label>Email Address</label>
+<input type="email" name="email" placeholder="rahul@example.com" required>
+</div>
+
+
+<div class="form-group">
+<label>Phone Number</label>
+<input type="tel" name="phone" placeholder="+91 00000 00000">
+</div>
+
+
+<div class="form-group">
+<label>Service Interested In</label>
+
+<select name="service">
+
+<option value="">Select a service...</option>
+<option>Web Development</option>
+<option>Graphic Design</option>
+<option>Social Media Management (SMMA)</option>
+<option>Advertisement / Paid Ads</option>
+<option>Full Package</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Tell Us About Your Project</label>
+
+<textarea
+name="message"
+placeholder="Describe your project, goals, and timeline..."
+required
+></textarea>
+
+</div>
+
+
+<button type="submit" class="btn-primary" style="width:100%">
+Send Message →
+</button>
+
+<p id="formMsg" style="margin-top:15px;font-weight:500;"></p>
+
+</form>
+
+</div>
+
+</section>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="footer-bottom" style="border:none">
+
+<span>© 2026 We Brand Me.</span>
+
+<a href="index.html" style="color:var(--gold);text-decoration:none">
+← Home
+</a>
+
+</div>
+
+</footer>
+
+
+
+<script>
+
+function toggleMenu(){
+document.getElementById("navLinks").classList.toggle("open")
+}
+
+const scriptURL = "https://script.google.com/macros/s/AKfycbwDJxwNqwrtfRu8jXy_OraSSScnVb6mAfDRJre5N9ITnHIbhAYluOvZ0RFJcN0ru1I9/exec";
+
+const form = document.getElementById("contactForm");
+
+form.addEventListener("submit", function(e){
+
+e.preventDefault();
+
+const msg = document.getElementById("formMsg");
+
+msg.innerHTML = "Sending message...";
+
+fetch(scriptURL, {
+method: "POST",
+body: new FormData(form)
+})
+.then(response => {
+
+msg.innerHTML = "✅ Message sent successfully!";
+form.reset();
+
+})
+.catch(error => {
+
+msg.innerHTML = "❌ Error sending message.";
+
+});
+
+});
+
+</script>
+
+
+</body>
+</html>
