@@ -298,6 +298,7 @@ display:none;
 
 /* full screen mobile menu */
 
+
 .nav-links.open{
 display:flex;
 flex-direction:column;
@@ -307,10 +308,11 @@ left:0;
 width:100%;
 height:100vh;
 background:#080808;
-justify-content:center;
 align-items:center;
-gap:2rem;
-z-index:1000;
+justify-content:flex-start; /* start from top instead of center */
+padding-top:6rem; /* space below navbar */
+gap:1.8rem;
+z-index:999;
 }
 
 /* mobile menu links */
