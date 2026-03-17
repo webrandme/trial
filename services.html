@@ -7,8 +7,14 @@
 <script src="https://kit.fontawesome.com/a15c9eb90b.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+<script src="https://cdn.tailwindcss.com"></script>
+
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="shared.css" />
+
 <style>
   /* Service Detail Overlay */
   .service-detail-overlay {
@@ -76,6 +82,78 @@
       <p>Paid ads on Meta, Google, and beyond — built to scale revenue with precision targeting.</p>
       <div class="service-arrow">→</div>
     </div>
+  </div>
+</section>
+<!-- FAQ SECTION -->
+<!-- FAQ SECTION (5 MOST ASKED) -->
+<section class="faq-section">
+  <div class="reveal">
+    <span class="section-tag">Common Questions</span>
+    <h2 class="section-title"> <em>FAQs</em></h2>
+    <div class="divider"></div>
+    <p class="section-sub">Have questions before reaching out? Here are the answers to our most frequently asked questions.</p>
+  </div>
+
+  <div class="faq-container">
+    <!-- FAQ #1 - Pricing -->
+    <div class="faq-item reveal">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        <span class="faq-text">What is your pricing structure?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Our pricing is transparent with no hidden fees. We offer three website packages: Standard (basic single-page websites from ₹15,000), Premium (single-page with luxury animations from ₹30,000), and Elite (multi-page with high-end animations from ₹50,000+). Each package includes ongoing support. For custom projects, we provide detailed quotes after understanding your requirements during our discovery call. Your budget is always our priority.</p>
+      </div>
+    </div>
+
+    <!-- FAQ #2 - Timeline -->
+    <div class="faq-item reveal">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        <span class="faq-text">How long does a typical project take?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Project timeline depends on scope and complexity. Standard websites typically take 2-3 weeks, Premium websites 3-4 weeks, and Elite multi-page websites 4-6 weeks. We always provide a detailed timeline during the planning phase and respect all deadlines. Regular progress updates keep you informed throughout the project lifecycle.</p>
+      </div>
+    </div>
+
+    <!-- FAQ #3 - Getting Started -->
+    <div class="faq-item reveal">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        <span class="faq-text">How do I get started?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Getting started is simple! Fill out the contact form above or book a free Quick Call with our team. During this 30-minute call, we'll discuss your project, understand your vision, understand your goals, and provide a clear roadmap and transparent pricing. No obligation, just a friendly conversation about how we can help your business grow online.</p>
+      </div>
+    </div>
+
+    <!-- FAQ #4 - Post-Launch Support -->
+    <div class="faq-item reveal">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        <span class="faq-text">Do you provide post-launch support?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Absolutely! We provide dedicated support after launch at no extra cost. Our team is available for maintenance, updates, bug fixes, and any technical assistance you might need. We consider ourselves your long-term digital partner, not just a one-time vendor. You'll have direct access to our support team whenever you need help.</p>
+      </div>
+    </div>
+
+    <!-- FAQ #5 - Free Consultation -->
+    <div class="faq-item reveal">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        <span class="faq-text">Is the initial consultation free?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Yes! Our initial Quick Call consultation is completely free, with no hidden charges or obligations. We'll learn about your project, discuss your vision and goals, answer your questions, and provide a preliminary overview of how we can help. There's absolutely no pressure to sign up. This is our way of understanding if we're the right fit for your project.</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align: center; margin-top: 2.5rem;">
+    <p style="color: var(--gray); margin-bottom: 1rem; font-size: 0.95rem;">Still have questions? Contact Us</p>
+    
   </div>
 </section>
 
@@ -191,6 +269,20 @@ function initReveal() {
     });
   }, { threshold: 0.1 });
   els.forEach(el => obs.observe(el));
+}
+function toggleFAQ(element) {
+  const faqItem = element.parentElement;
+  const isActive = faqItem.classList.contains('active');
+
+  // Close all FAQ items
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.classList.remove('active');
+  });
+
+  // Open clicked item if it wasn't active
+  if (!isActive) {
+    faqItem.classList.add('active');
+  }
 }
 </script>
 </body>
