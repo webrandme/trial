@@ -113,18 +113,84 @@ section { padding: 7rem 5vw; }
 
 .blog-thumb img {height: 100%; width: 100%; object-fit: cover;}
 /* PORTFOLIO */
-.portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 1.5px; margin-top: 3rem; }
-.portfolio-item { position: relative; overflow: hidden; aspect-ratio: 6/3; background: var(--dark3); cursor: pointer; border: 1px solid rgba(255,255,255,0.04); }
-.portfolio-thumb { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 3rem; transition: transform .5s; background: linear-gradient(135deg, var(--dark2), var(--dark3)); }
-.portfolio-thumb img {width: 100%;
-height: 100%;
-object-fit: cover;}
-.portfolio-item:hover .portfolio-thumb { transform: scale(1.05); }
-.portfolio-overlay { position: absolute; inset: 0; background: rgba(8,8,8,0.88); display: flex; flex-direction: column; justify-content: flex-end; padding: 2rem; opacity: 0; transition: opacity .4s; }
-.portfolio-item:hover .portfolio-overlay { opacity: 1; }
-.portfolio-tag { font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); margin-bottom: .5rem; }
-.portfolio-title { font-family: var(--serif); font-size: 1.4rem; font-weight: 700; margin-bottom: .5rem; }
-.portfolio-desc { font-size: .75rem; color: var(--gray); line-height: 1.7; }
+/* ═════════════════════════════
+   PORTFOLIO (UPDATED FIX)
+   ═════════════════════════════ */
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* ✅ MAX 3 PER ROW */
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.portfolio-item {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 6/3;
+  background: var(--dark3);
+  cursor: pointer;
+  border: 1px solid rgba(255,255,255,0.04);
+  transition: transform .3s ease;
+}
+
+.portfolio-item:hover {
+  transform: translateY(-4px);
+}
+
+.portfolio-thumb {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.portfolio-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .5s ease;
+}
+
+.portfolio-item:hover .portfolio-thumb img {
+  transform: scale(1.08); /* nice zoom effect */
+}
+
+.portfolio-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(8,8,8,0.88);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2rem;
+  opacity: 0;
+  transition: opacity .4s ease;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+  opacity: 1;
+}
+
+.portfolio-tag {
+  font-size: .62rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: .5rem;
+}
+
+.portfolio-title {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: .5rem;
+}
+
+.portfolio-desc {
+  font-size: .75rem;
+  color: var(--gray);
+  line-height: 1.7;
+}
 
 /* TESTIMONIALS */
 .testimonials-bg { background: var(--dark); }
@@ -161,11 +227,174 @@ object-fit: cover;}
 .brands-row { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 3.5rem; }
 .brand-item { font-family: var(--serif); font-size: 1.1rem; color: rgba(255,255,255,0.2); letter-spacing: .1em; transition: color .3s; cursor: default; font-weight: 600; }
 .brand-item:hover { color: var(--gold); }
+/* ════════════════════════════════════════════════════════════════ */
+/* FAQ SECTION - COMPLETE CSS CODE */
+/* ════════════════════════════════════════════════════════════════ */
+
+/* ─── FAQ SECTION CONTAINER ─── */
+.faq-section {
+  padding: 5rem 5vw;
+  background: var(--light);
+}
+
+/* ─── FAQ CONTAINER ─── */
+.faq-container {
+  max-width: 800px;
+  margin: 3rem auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* ─── FAQ ITEM (INDIVIDUAL ACCORDION) ─── */
+.faq-item {
+  border: 1px solid rgba(201, 168, 76, 0.15);
+  border-radius: 8px;
+  overflow: hidden;
+  background: none;
+  transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+  border-color: rgba(201, 168, 76, 0.4);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+/* ─── FAQ QUESTION (CLICKABLE HEADER) ─── */
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  cursor: pointer;
+  user-select: none;
+  background: none;
+  transition: background 0.3s ease;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+   
+
+}
+
+.faq-question:hover {
+  background: rgba(201, 168, 76, 0.03);
+}
+
+/* ─── FAQ QUESTION TEXT ─── */
+.faq-text {
+  font-weight: 600;
+  font-size: 1rem;
+  color:#C9A84C ;
+  margin: 0;
+}
+
+/* ─── FAQ ICON (+ / -) ─── */
+.faq-icon {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(201, 168, 76, 0.1);
+  border-radius: 50%;
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  margin-left: 1rem;
+}
+
+/* ─── FAQ ICON WHEN ACTIVE ─── */
+.faq-item.active .faq-icon {
+  background: var(--gold);
+  color: white;
+  transform: rotate(45deg);
+}
+
+/* ─── FAQ ANSWER (HIDDEN BY DEFAULT) ─── */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  background: rgba(201, 168, 76, 0.03);
+  transition: max-height 0.4s ease, padding 0.4s ease;
+}
+
+/* ─── FAQ ANSWER WHEN ACTIVE (EXPANDED) ─── */
+.faq-item.active .faq-answer {
+  max-height: 500px;
+  padding: 0 1.5rem 1.5rem;
+}
+
+/* ─── FAQ ANSWER TEXT ─── */
+.faq-answer p {
+  margin: 0;
+  color: var(--gray);
+  line-height: 1.8;
+  font-size: 0.95rem;
+}
+
+/* ════════════════════════════════════════════════════════════════ */
+/* RESPONSIVE DESIGN - MOBILE & TABLET */
+/* ════════════════════════════════════════════════════════════════ */
+
+/* ─── TABLET & SMALL SCREENS (768px and below) ─── */
+@media (max-width: 768px) {
+  .faq-section {
+    padding: 4rem 4vw;
+  }
+
+  .faq-question {
+    padding: 1.2rem;
+  }
+
+  .faq-text {
+    font-size: 0.95rem;
+  }
+
+  .faq-icon {
+    width: 24px;
+    height: 24px;
+    font-size: 1rem;
+  }
+
+  .faq-item.active .faq-answer {
+    max-height: 600px;
+    padding: 0 1.2rem 1.2rem;
+  }
+}
+
+/* ─── SMALL MOBILE SCREENS (480px and below) ─── */
+@media (max-width: 480px) {
+  .faq-section {
+    padding: 3rem 3vw;
+  }
+
+  .faq-question {
+    padding: 1rem;
+  }
+
+  .faq-text {
+    font-size: 0.9rem;
+  }
+
+  .faq-icon {
+    width: 22px;
+    height: 22px;
+    font-size: 0.9rem;
+    margin-left: 0.8rem;
+  }
+
+  .faq-container {
+    gap: 0.8rem;
+  }
+}
 
 /* CONTACT */
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; margin-top: 3rem; }
 .contact-item { display: flex; gap: 1.2rem; align-items: flex-start; margin-bottom: 2rem; }
-.contact-icon { width: 44px; height: 44px; border: 1px solid rgba(201,168,76,0.3); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+.contact-icon { color: #C9A84C; width: 44px; height: 44px; border: 1px solid rgba(201,168,76,0.3); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; color: #C9A84C; }
 .contact-label { font-size: .65rem; letter-spacing: .15em; text-transform: uppercase; color: var(--gold); margin-bottom: .3rem; }
 .contact-value { font-size: .9rem; color: var(--white); }
 .form-group { margin-bottom: 1.5rem; }
@@ -241,9 +470,11 @@ padding:6rem 5vw;
 grid-template-columns:repeat(2,1fr);
 }
 
-.portfolio-grid{
-grid-template-columns:repeat(2,1fr);
-}
+
+ .portfolio-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
 
 .blog-grid{
 grid-template-columns:repeat(2,1fr);
@@ -378,10 +609,9 @@ gap:2.5rem;
 
 /* PORTFOLIO */
 
-.portfolio-grid{
-grid-template-columns:1fr;
-gap:1rem;
-}
+ .portfolio-grid{
+    grid-template-columns:1fr;
+  }
 
 .portfolio-item{
 aspect-ratio:16/10;
@@ -390,6 +620,7 @@ aspect-ratio:16/10;
 .portfolio-title{
 font-size:1.2rem;
 }
+
 
 
 /* ---------- SMALLER TESTIMONIALS ---------- */
